@@ -5,7 +5,11 @@ const hubsRouter = require("./hubs/hubs-router.js");
 const server = express();
 
 const newLogger = (req, res, next) => {
-  console.log(req.ip, req.method);
+  const { url, ip, method } = req;
+  console.log(`
+  url: ${url}, 
+  ip: ${ip}, 
+  method: ${method}`);
   next();
 };
 
